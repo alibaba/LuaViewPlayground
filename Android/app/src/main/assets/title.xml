@@ -1,0 +1,4 @@
+<View id="container" frame="0, 0, sys.contW, sys.navH">
+    <Text id="left" frame="0, 0, sys.contW, sys.navH" fontSize="20" textColor="0xffffff" textAlign="TextAlign.CENTER"></Text>
+    <Image id="right" frame="sys.contW-sys.navH*0.5-20, sys.navH*0.25, sys.navH*0.5, sys.navH*0.5" image="scan.png" hide="true"></Image>
+</View>

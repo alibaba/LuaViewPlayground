@@ -1,0 +1,24 @@
+<View frame="0, 0, sys.contW, sys.contH">
+    <View frame="0, 0, sys.contW, sys.contH" bg="0x000000" alpha="0.4"></View>
+    <View frame="0, 0, sys.contW, sys.contH" css="{flex-direction='column', justify-content='center', align-items='center'}">
+        <View css="{width=sys.contW*0.8, height=sys.contH*0.3}">
+            <View css="{flex=2}" bg="0xffffff" corner="5">
+                <View css="{flex=1, flex-direction='row'}">
+                    <Text css="{flex=0.3}" text="UserName:" textAlign="TextAlign.RIGHT" fontSize="16" textColor="0x000000"></Text>
+                    <View css="{flex=0.03}"></View>
+                    <Input id="username" css="{flex=0.7}"></Input>
+                </View>
+                <View css="{flex=0.01}" bg="0xeeeeee"></View>
+                <View css="{flex=1, flex-direction='row'}">
+                    <Text css="{flex=0.3}" text="Password:" textAlign="TextAlign.RIGHT" fontSize="16" textColor="0x000000"></Text>
+                    <View css="{flex=0.03}"></View>
+                    <Input id="password" css="{flex=0.7}" type="password"></Input>
+                </View>
+            </View>
+            <View css="{flex=1}">
+                <View css="{width=sys.contW*0.8, height=sys.contH*0.02}"></View>
+                <Button id="login" css="{width=sys.contW*0.8, height=sys.contH*0.08}" bg="0xFF7C34" corner="5" title="LOGIN"></Button>
+            </View>
+        </View>
+    </View>
+</View>
