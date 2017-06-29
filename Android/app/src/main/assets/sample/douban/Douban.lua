@@ -79,7 +79,15 @@ function meta:handle()
                         actors = actors .. _v["name"] .. "/"
                     end
                     cell.objs["character"]:text(director .. "\n" .. actors)
-                    cell.objs["number"]:text(self.cacheData["subjects"][row]["collect_count"] .. "人看过")
+
+                    local status = ""
+                    if (self.cacheData.status == "online") then
+                        status = "看过"
+                    else
+                        status = "想看"
+                    end
+
+                    cell.objs["number"]:text(self.cacheData["subjects"][row]["collect_count"] .. "人" .. status)
 
                     cell.objs["item"]:onClick(function()
                         Router:require({page="sample.douban.Douban_detail", detail_id=self.cacheData["subjects"][row]["id"]})
@@ -92,6 +100,7 @@ function meta:handle()
                 if (self.isLeft) then
                     self.http = self:request(self.theatersUrl,
                         function(data)
+                            data.status = "online"
                             self.theatersDta = data
                             self.cacheData = self.theatersDta
                             self.list:reload()
@@ -101,6 +110,7 @@ function meta:handle()
                 else
                     self.http = self:request(self.comingUrl,
                         function(data)
+                            data.status = "coming"
                             self.comingData = data
                             self.cacheData = self.comingData
                             self.list:reload()
@@ -114,6 +124,7 @@ function meta:handle()
 
     self.http = self:request(self.theatersUrl,
         function(data)
+            data.status = "online"
             self.theatersDta = data
             self.cacheData = self.theatersDta
             self.list:reload()
@@ -143,6 +154,7 @@ function meta:leftClick()
         self.loading:show()
         self.http = self:request(self.theatersUrl,
             function(data)
+                data.status = "online"
                 self.theatersDta = data
                 self.cacheData = self.theatersDta
                 self.list:reload()
@@ -173,6 +185,7 @@ function meta:rightClick()
         self.loading:show()
         self.http = self:request(self.comingUrl,
             function(data)
+                data.status = "coming"
                 self.comingDta = data
                 self.cacheData = self.comingDta
                 self.list:reload()
